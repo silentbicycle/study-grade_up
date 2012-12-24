@@ -175,8 +175,11 @@ static I scv_fetch_and_decrement(scv *c, I idx) {
     return b[ci]--;
 }
 
+#define SCV_BITS 10
+#define SCV_HINT 1
+
 static int sparse_grade_updown(int up, I lim, I *in, I *out) {
-    scv *c = scv_new(10, 1);
+    scv *c = scv_new(SCV_BITS, SCV_HINT);
     if (c == NULL) return -1;
 
     for (I i=0; i<lim; i++) {
